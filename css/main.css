@@ -1,0 +1,60 @@
+.no-padding {
+    padding:0 !important;
+}
+
+.no-radio-margin {
+    margin-left: 0 !important;
+} 
+
+.divider {
+    border-bottom: 1px solid #ccc;
+}
+
+.hidden {
+    visibility: hidden;
+    height: 0;
+    line-height: 0;
+}
+
+.container {
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 100%;
+}
+
+.btn-info {
+    
+    width: 10rem;
+    height: 3rem;
+}
+
+.btn-lg {
+    width: 10rem;
+    height: 4rem;
+}
+
+.btn-secondary {
+    width: 10rem;
+}
+
+.add-row-btn,
+.delete-row-btn {
+    width: 3rem;
+}
+
+.is-invalid {
+    border-color: red;
+    outline: 0;
+}
+
+.invalid-feedback {
+    font-size: 0.75rem !important;
+    color: red !important;
+}
+
+@media (min-width: 992px) { 
+    .divider {
+        border-bottom: none;
+        border-right: 1px solid #ccc;
+    }
+}

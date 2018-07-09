@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>C3 Chart Editor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/c3.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row col-12">
+      <div class="col-lg-6 divider">
+        <h1 class="text-center my-3">C3 Chart Editor</h1>
+        <div id="chart-types" class="row">
+          <div class="col-12 no-padding" id="chart-types-header">
+            <h4 class="text-left">Chart Types:</h4>
+          </div>
+          <div class="col-10">
+            <button class="btn btn-secondary btn-lg mr-2 my-2" id="pie">Pie</button>
+            <button class="btn btn-secondary btn-lg mr-2 my-2" id="donut">Donut</button>
+            <button class="btn btn-secondary btn-lg mr-2 my-2" id="bar">Bar</button>
+            <button class="btn btn-secondary btn-lg mr-2 my-2" id="line">Line</button>
+            <button class="btn btn-secondary btn-lg mr-2 my-2" id="area">Area</button>
+            <button class="btn btn-secondary btn-lg mr-2 my-2" id="scatter">Scatter</button>
+          </div>
+        </div>
+
+        <div class="row">
+          <form id="chart-editor-form" role="form" class="col my-3 no-padding" novalidate>
+            <div class="form-group">
+              <label class="mt-2" for="title">Title</label>
+              <input type="text" name="title" id="title" class="form-control col-8">
+            </div>
+            <div class="form-group">
+              <label class="mt-2" for="subtitle">Subtitle</label>
+              <input type="text" name="subtitle" id="subtitle" class="form-control col-8">
+            </div>
+            <h4 class="text-left mt-5">Color Theme:</h4>
+            <div class="form-check">
+              <input class="form-check-input no-radio-margin" type="radio" name="color-theme" id="rainbow" value="rainbow" checked>
+              <label class="form-check-label" for="rainbow">
+                Rainbow
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input no-radio-margin" type="radio" name="color-theme" id="pastel" value="pastel">
+              <label class="form-check-label" for="pastel">
+                Pastel
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input no-radio-margin" type="radio" name="color-theme" id="monochrome" value="monochrome">
+              <label class="form-check-label" for="monochrome">
+                Monochrome
+              </label>
+            </div>
+
+            <div class="mr-5 chart-data-div">
+              <h4 class="text-left mt-5">Chart Data:</h4>
+              <div class="form-group" id="x-axis">
+                <label class="mt-2" for="x-axis-label">X Axis Label</label>
+                <input type="text" name="x-axis-label" id="x-axis-label" class="form-control col-8">
+              </div>
+              <div class="form-group" id="y-axis">
+                <label class="mt-2" for="y-axis-label">Y Axis Label</label>
+                <input type="text" name="y-axis-label" id="y-axis-label" class="form-control col-8">
+              </div>
+              <div class="form-group hidden" id="y2-axis">
+                <label class="mt-2" for="y2-axis-label">Y2 Axis Label</label>
+                <input type="text" name="y2-axis-label" id="y2-axis-label" class="form-control col-8">
+              </div>
+
+              <div class="table-div my-5">
+                <div class="form-group col-8 no-padding">
+                  <label class="mt-2 table-series-label" for=""></label>
+                  <input type="text" class="form-control table-series-label-y-input" placeholder="Y Values Data Label (Leave blank for default)">
+                  <div class="hidden invalid-feedback">Data labels must be unique.</div>
+                  <input type="text" class="form-control hidden table-series-label-y2-input" placeholder="Y2 Values Data Label (Leave blank for default)">
+                  <div class="hidden invalid-feedback">Data labels must be unique.</div>
+                </div>
+                <table class="table table-responsive table-bordered table-series" id="">
+                  <thead class="table-head">
+                    <tr>
+                      <th class="text-center" scope="col">#</th>
+                      <th class="text-center x-column" scope="col">X Values</th>
+                      <th class="text-center y-column" scope="col">Y Values</th>
+                      <th class="text-center" scope="col">Add Row</th>
+                      <th class="text-center" scope="col">Delete Row</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body">
+                    <tr>
+                      <th class="text-center table-row-number" scope="row"></th>
+                      <td class="text-center">
+                        <input type="text" class="form-control data-input x-values">
+                        <div class="hidden invalid-feedback">Please enter a numerical data value.</div>
+                      </td>
+                      <td class="text-center">
+                        <input type="text" class="form-control data-input y-values">
+                        <div class="hidden invalid-feedback">Please enter a numerical data value.</div>
+                      </td>
+                      <td class="text-center">
+                        <button class="btn btn-secondary add-row-btn" type="button" value="add">
+                          <i class="fas fa-plus-circle"></i>
+                        </button>
+                      </td>
+                      <td class="text-center">
+                        <button class="btn btn-secondary delete-row-btn" type="button" value="delete">
+                          <i class="fas fa-trash-alt"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="table-btns">
+              <div class="series-btns">
+                <button id="add-series-btn" class="btn btn-secondary my-3 py-3" type="button" value="Add Series">
+                  <i class="fas fa-plus-circle"></i> Series
+                </button>
+                <button id="delete-series-btn" class="btn btn-secondary my-3 py-3" type="button" value="Delete Series">
+                  <i class="fas fa-minus-circle"></i> Series
+                </button>
+              </div>
+              <div class="row-all-btns">
+                <button id="add-row-all-btn" class="btn btn-secondary my-3 py-3" type="button" value="Add Row All">
+                  <i class="fas fa-plus-circle"></i> Row All
+                </button>
+                <button id="delete-row-all-btn" class="btn btn-secondary my-3 py-3" type="button" value="Delete Row All">
+                  <i class="fas fa-minus-circle"></i> Row All
+                </button>
+              </div>
+              <div class="col-btns">
+                <button id="add-column-btn" class="btn btn-secondary my-3 py-3" type="button" value="Add Y2 Column">
+                  <i class="fas fa-plus-circle"></i> Y2 Column
+                </button>
+                <button id="delete-column-btn" class="btn btn-secondary my-3 py-3" type="button" value="Delete Y2 Column">
+                  <i class="fas fa-minus-circle"></i> Y2 Column
+                </button>
+              </div>
+            </div>
+
+            <div class="submit-btns">
+              <button id="submit-btn" class="btn btn-primary btn-lg my-3" type="submit" value="Submit">
+                <i class="fas fa-arrow-circle-up"></i> Submit
+              </button>
+              <button id="reset-btn" class="btn btn-primary btn-lg my-3" type="reset" value="Reset">
+                <i class="fas fa-sync-alt"></i> Reset
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <h1 class="text-center my-3">Live Preview</h1>
+        <h3 id="chart-title" class="text-center my-3"></h3>
+        <h6 id="chart-subtitle" class="text-center my-3"></h6>
+        <div id="chart"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="application/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <script type="application/javascript" src="js/popper.min.js"></script>
+  <script type="application/javascript" src="js/tether.min.js"></script>
+  <script type="application/javascript" src="js/bootstrap.min.js"></script>
+  <script type="application/javascript" src="js/d3.min.js"></script>
+  <script type="application/javascript" src="js/c3.min.js"></script>
+  <script type="application/javascript" data-main="js/app.js" src="js/require.js"></script>
+</body>
+
+</html>
