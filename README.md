@@ -6,7 +6,7 @@ I know I could have saved a lot of time using jQuery, but I stuck with pure JS a
 
 To use C3 Chart Editor, I have it hosted on Heroku here: https://c3-chart-editor.herokuapp.com/index.html 
 
-In case the link is down or you prefer to download your own copy, you will need to set up a local server. There are many ways to do this, but I recommend installing [http-server](https://www.npmjs.com/package/http-server) if you use Node.js. If you use VS Code as your code editor of choice, I also highly recommend installing the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension, which makes launching a local server a breeze.
+In case the link is down or you prefer to download your own copy, you will need to set up a local server.
 
 ### How to Use
 * Simply fill out the chart form and watch the chart magic happen! You can select chart type, give your chart a title and subtitle, choose a color theme, as well as provide labels for each chart axis and watch all changes happen in the live preview. 
